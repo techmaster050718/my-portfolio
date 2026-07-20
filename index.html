@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Abhay's Portfolio - San Andreas Style</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pricedown&family=Bebas+Neue&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <!-- Background Video -->
+    <div class="video-background">
+        <video id="bgVideo" autoplay muted loop playsinline>
+            <source src="assets/bg-city-night.mp4" type="video/mp4"/>
+            <source src="assets/bg-city-night.webm" type="video/webm"/>
+        </video>
+    </div>
+
+    <!-- Profile -->
+    <div class="profile-section" aria-hidden="false">
+        <div class="profile-photo" title="Abhay's Profile"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Menu Section -->
+        <div class="menu-section" role="navigation" aria-label="Portfolio menu">
+            <div class="menu-title">PORTFOLIO</div>
+            <nav class="menu-items" role="menubar" aria-label="menu items">
+                <div class="hover-box" aria-hidden="true"></div>
+
+                <div class="menu-item" role="menuitem" data-page="education" tabindex="0">EDUCATIONAL DETAILS</div>
+                <div class="menu-item" role="menuitem" data-page="skills" tabindex="0">SKILLS</div>
+                <div class="menu-item" role="menuitem" data-page="projects" tabindex="0">PROJECTS</div>
+                <div class="menu-item" role="menuitem" data-page="contact" tabindex="0">CONTACT INFO</div>
+            </nav>
+        </div>
+
+        <!-- Content Panel -->
+        <div class="content-panel" aria-live="polite">
+            <div class="panel-content" aria-hidden="true">
+                <div class="panel-header" id="panelHeader">CONTENT</div>
+                <div class="panel-body" id="panelBody">
+                    <p>Select an option from the menu to view details.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating social icons (outside the panel, placed below contact panel) -->
+    <div id="floatingSocial" aria-label="Social links" tabindex="-1">
+      <a class="social-btn github" href="https://github.com/techmaster050718" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" width="18" height="18" role="img" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M12 .297a12 12 0 00-3.797 23.399c.6.111.82-.261.82-.579v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.756-1.333-1.756-1.089-.745.084-.73.084-.73 1.205.085 1.839 1.238 1.839 1.238 1.07 1.833 2.809 1.304 3.495.997.108-.776.418-1.305.76-1.605-2.665-.305-5.467-1.332-5.467-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 016.005 0c2.292-1.553 3.298-1.23 3.298-1.23.655 1.653.243 2.873.12 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.807 5.624-5.479 5.921.43.37.815 1.102.815 2.222v3.293c0 .319.218.694.825.576A12.003 12.003 0 0012 .297z"/>
+        </svg>
+      </a>
+
+      <a class="social-btn linkedin" href="https://www.linkedin.com/in/abhay-ojha-331a47375" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" width="18" height="18" role="img" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5V24H0zM8 8h4.5v2.1h.1c.6-1.1 2.1-2.1 4.3-2.1C20 8 21 10 21 13.1V24h-5v-9.2c0-2.2-.8-3.6-2.8-3.6-1.5 0-2.3 1.0-2.7 1.9-.1.3-.1.8-.1 1.2V24H8V8z"/>
+        </svg>
+      </a>
+
+      <!-- UPDATED Instagram: inline SVG (crisp, gradient rounded-square + white camera) -->
+      <a class="social-btn insta" href="https://www.instagram.com/abhay_ojha18" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 48 48" width="28" height="28" role="img" aria-hidden="true" focusable="false" class="insta-bg" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="instaGrad" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#f58529"/>
+              <stop offset="35%" stop-color="#dd2a7b"/>
+              <stop offset="65%" stop-color="#8134af"/>
+              <stop offset="100%" stop-color="#515bd4"/>
+            </linearGradient>
+            <!-- slight inner highlight -->
+            <radialGradient id="instaInner" cx="30%" cy="20%" r="60%">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.35)"/>
+              <stop offset="100%" stop-color="rgba(255,255,255,0.0)"/>
+            </radialGradient>
+          </defs>
+
+          <!-- outer rounded gradient square -->
+          <rect x="0" y="0" width="48" height="48" rx="11" ry="11" fill="url(#instaGrad)"/>
+
+          <!-- subtle glossy overlay -->
+          <rect x="0" y="0" width="48" height="48" rx="11" ry="11" fill="url(#instaInner)" opacity="0.15"/>
+
+          <!-- camera outline (white) -->
+          <g transform="translate(9,9) scale(0.6)" fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="144" y="144" width="224" height="224" rx="56" ry="56" />
+          </g>
+
+          <!-- inner white circle lens -->
+          <circle cx="24" cy="24" r="7.2" fill="#ffffff" />
+
+          <!-- small white dot (flash) -->
+          <circle cx="36" cy="12" r="2.4" fill="#ffffff" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+</html>

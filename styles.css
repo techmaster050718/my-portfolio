@@ -1,0 +1,558 @@
+/* ==================== CSS VARIABLES ==================== */
+:root {
+    --primary-color: #00ff41;
+    --secondary-color: #ff6b00;
+    --bg-dark: #0a0a0a;
+    --bg-overlay: rgba(0, 0, 0, 0.85);
+    --text-light: #ffffff;
+    --text-muted: #cccccc;
+    --panel-bg: #1a1a1a;
+    --paper-bg: #f4e8d0;
+    --paper-text: #2a2a2a;
+
+    /* Neon accent for social icons (adjustable) */
+    --neon-accent: rgba(140,255,140,0.95);
+    --neon-shadow: rgba(140,255,140,0.25);
+
+    /* Floating social offset (distance from center). Lower = closer to panel */
+    --social-offset: 260px;
+
+    /* Animation speeds */
+    --speed-fast: 0.15s;
+    --speed-normal: 0.3s;
+    --speed-cinematic: 0.6s;
+    --current-speed: var(--speed-normal);
+}
+
+/* ==================== BASE STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier Prime', monospace;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* ==================== VIDEO BACKGROUND ==================== */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a0033 0%, #000000 50%, #001a33 100%);
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+/* Film grain effect */
+.video-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+    animation: grain 0.5s steps(10) infinite;
+}
+
+@keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -5%); }
+    20% { transform: translate(-10%, 5%); }
+    30% { transform: translate(5%, -10%); }
+    40% { transform: translate(-5%, 15%); }
+    50% { transform: translate(-10%, 5%); }
+    60% { transform: translate(15%, 0); }
+    70% { transform: translate(0, 10%); }
+    80% { transform: translate(-15%, 0); }
+    90% { transform: translate(10%, 5%); }
+}
+
+/* ==================== MAIN CONTAINER ==================== */
+.container {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==================== PROFILE SECTION ==================== */
+.profile-section {
+    position: absolute;
+    top: 30px;      /* moved slightly UP */
+    right: 30px;    /* moved slightly RIGHT */
+    z-index: 90;
+}
+
+.profile-photo {
+    width: 275px;   /* slightly smaller */
+    height: 275px;  /* slightly smaller */
+    border-radius: 50%;
+    border: 6px solid var(--primary-color);
+    box-shadow:
+        0 0 30px var(--primary-color),
+        inset 0 3px 6px rgba(255,255,255,0.25),
+        inset 0 -3px 6px rgba(0,0,0,0.35);
+    background-color: #111;
+    background-image: url("assets/aaa.jpeg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .profile-photo {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Mobile responsive — adjust automatically */
+@media (max-width: 1024px) {
+    .profile-photo {
+        width: 170px;
+        height: 170px;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-photo {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* ==================== MENU SECTION ==================== */
+.menu-section {
+    width: 450px;
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* UPDATED: Bigger neon PORTFOLIO heading */
+.menu-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;           /* increased from 48px → now bigger */
+    color: var(--primary-color);
+    margin-bottom: 60px;
+    text-shadow:
+        0 0 8px rgba(0,0,0,0.6),
+        0 0 14px var(--primary-color),
+        0 0 30px rgba(0,0,0,0.25);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    line-height: 0.95;
+}
+
+.menu-items {
+    position: relative;
+}
+
+.menu-item {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    padding: 18px 25px;
+    margin: 8px 0;
+    cursor: pointer;
+    position: relative;
+    color: var(--text-light);
+    transition: color var(--current-speed) ease, transform var(--current-speed) ease;
+    outline: none;
+    user-select: none;
+}
+
+.menu-item:focus {
+    outline: 3px solid rgba(0,255,65,0.18);
+    outline-offset: 6px;
+    transform: translateX(6px);
+}
+
+.menu-item.active {
+    color: var(--bg-dark);
+    z-index: 12;
+}
+
+/* GTA-style hover box */
+.hover-box {
+    position: absolute;
+    background: var(--primary-color);
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 0 30px var(--primary-color),
+        inset 0 0 20px rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    transition: all var(--current-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateX(-10px);
+    width: calc(100% - 20px);
+    height: 56px;
+    border-radius: 6px;
+}
+
+.hover-box.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ==================== CONTENT PANEL ==================== */
+.content-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+}
+
+.panel-content {
+    background: var(--paper-bg);
+    border: 8px solid #8b6f47;
+    box-shadow:
+        0 10px 50px rgba(0, 0, 0, 0.8),
+        inset 0 2px 10px rgba(255, 255, 255, 0.5);
+    padding: 50px 60px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateX(100%) scale(0.9);
+    opacity: 0;
+    transition: all var(--current-speed) cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.panel-content.active {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+}
+
+/* Paper texture */
+.panel-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' /%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+}
+
+.panel-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    border-bottom: 3px solid #8b6f47;
+    padding-bottom: 15px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.panel-body {
+    color: var(--paper-text);
+    line-height: 1.8;
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 18px;
+}
+
+.panel-body h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: #8b6f47;
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+
+.panel-body ul {
+    list-style-position: inside;
+    margin: 15px 0;
+}
+
+.panel-body li {
+    margin: 8px 0;
+    padding-left: 10px;
+}
+
+.panel-body strong {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+/* ==================== FLOATING SOCIAL (outside panel) ==================== */
+#floatingSocial {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(50% + var(--social-offset));
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    z-index: 140;
+    pointer-events: auto;
+    transition: transform 220ms ease, opacity 200ms ease;
+    opacity: 0.98;
+}
+
+/* responsive adjustments */
+@media (max-width: 1024px) {
+    #floatingSocial { top: calc(50% + (var(--social-offset) - 60px)); }
+}
+@media (max-width: 768px) {
+    #floatingSocial { position: static; transform: none; margin: 18px auto 28px; }
+}
+
+/* Base circular button */
+#floatingSocial .social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.06);
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.6), 0 0 12px rgba(0,0,0,0.2) inset;
+    transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* svg default icon sizes */
+#floatingSocial .social-btn svg { display:block; width:18px; height:18px; }
+
+/* GitHub: dark monochrome */
+#floatingSocial .social-btn.github {
+    background: linear-gradient(180deg,#0b0b0b,#151515);
+    border-color: rgba(255,255,255,0.06);
+    color: #fff;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.7);
+}
+
+/* LinkedIn: brand-like */
+#floatingSocial .social-btn.linkedin {
+    background: linear-gradient(180deg,#0b3146,#002736);
+    border-color: rgba(10,176,255,0.18);
+    color: #0aa4ea;
+    box-shadow: 0 10px 28px rgba(10,176,255,0.04);
+}
+
+/* ==================== INSTAGRAM (UPDATED: crisp SVG + rounded-square) ==================== */
+#floatingSocial .social-btn.insta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;              /* slightly larger rounded-square */
+    height: 56px;
+    border-radius: 12px;      /* rounded square match SVG */
+    border: none;
+    padding: 6px;
+    background: transparent;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.6),       /* depth */
+        0 0 18px rgba(140,255,140,0.04);    /* subtle neon ambient */
+    transition: transform 180ms var(--current-speed), box-shadow 180ms var(--current-speed);
+}
+
+/* ensure instagram svg is slightly larger than other icons */
+#floatingSocial .social-btn.insta svg { display:block; width:28px; height:28px; pointer-events:none; }
+
+/* hide any old image fallback if present */
+#floatingSocial .social-btn.insta img { display: none !important; }
+
+/* hover / focus: lift and stronger glow specific to insta */
+#floatingSocial .social-btn.insta:hover,
+#floatingSocial .social-btn.insta:focus {
+    transform: translateY(-6px) scale(1.06);
+    box-shadow:
+        0 18px 48px rgba(0,0,0,0.65),
+        0 0 44px rgba(140,255,140,0.10),
+        0 0 12px rgba(255,255,255,0.02);
+    outline: none;
+}
+
+/* hover/focus for floating social (general) */
+#floatingSocial .social-btn:hover,
+#floatingSocial .social-btn:focus {
+    transform: translateY(-6px) scale(1.06);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.7), 0 0 36px rgba(140,255,140,0.06);
+    outline: none;
+}
+
+/* ensure insta svg rounded rect looks circular on all browsers (keeps visual consistency) */
+#floatingSocial .insta-bg rect { rx: 14; ry: 14; }
+
+/* ==================== HIDE IN-PANEL CONTACT SOCIAL (avoid duplicate) ==================== */
+.contact-social { display: none !important; }
+
+/* ==================== SOCIAL LINKS (OLD) - HIDE IT  ==================== */
+.social-links, .neon-btn { display: none !important; }
+
+/* ==================== CONTROLS (hide the bottom control bar) ==================== */
+.controls { display: none !important; }
+
+/* ==================== SPEED TOGGLE ==================== */
+/* COMPLETELY HIDE the Fast / Normal / Cinematic control */
+.speed-toggle {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+.speed-toggle button {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 5px 12px;
+    margin: 0 3px;
+    cursor: pointer;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    transition: all 0.2s;
+}
+
+.speed-toggle button:hover,
+.speed-toggle button.active {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+    .profile-section {
+        top: 20px;
+        right: 20px;
+    }
+
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+        font-size: 32px;
+    }
+
+    .menu-section {
+        width: 350px;
+        padding: 60px 30px;
+    }
+
+    .menu-title {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+
+    .menu-item {
+        font-size: 24px;
+        padding: 14px 20px;
+    }
+
+    /* make insta scale down on tablet */
+    #floatingSocial .social-btn.insta { width: 48px; height: 48px; }
+    #floatingSocial .social-btn.insta svg { width: 22px; height: 22px; }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .profile-section {
+        position: static;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    .menu-section {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .menu-title {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .menu-item {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .content-panel {
+        padding: 20px;
+    }
+
+    .panel-content {
+        padding: 30px 25px;
+        max-height: 60vh;
+    }
+
+    .panel-header {
+        font-size: 32px;
+    }
+
+    .speed-toggle {
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+    }
+
+    /* mobile insta sizing */
+    #floatingSocial .social-btn.insta { width: 44px; height: 44px; border-radius: 10px; }
+    #floatingSocial .social-btn.insta svg { width: 20px; height: 20px; }
+}
+
+/* ==================== SCROLLBAR ==================== */
+.panel-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.panel-content::-webkit-scrollbar-track {
+    background: #d4c4a8;
+}
+
+.panel-content::-webkit-scrollbar-thumb {
+    background: #8b6f47;
+    border-radius: 4px;
+}
+
+.panel-content::-webkit-scrollbar-thumb:hover {
+    background: #6b5537;
+}
