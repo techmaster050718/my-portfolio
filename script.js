@@ -225,13 +225,12 @@ const contentData = {
             </ul>
             <h3>Other basic Apps</h3>
             <ul>
-                <li class="project-app-row"><span>PerFitly Life</span><a class="project-link" href="https://techmaster050718.github.io/Perfitlyapp/" target="_blank" rel="noopener">Click here</a></li>
-                <li class="project-app-row"><span>Nebula OS</span><a class="project-link" href="https://techmaster050718.github.io/Nebula-OS/" target="_blank" rel="noopener">Click here</a></li>
-                <li>AI Chat assistan </li>
+                <li class="project-app-row"><span>Perfitly Life</span><a class="project-link" href="https://github.com/techmaster050718/Perfitlyapp.git" target="_blank" rel="noopener">Click here</a></li>
+                <li class="project-app-row"><span>Nebula OS</span><a class="project-link" href="https://github.com/techmaster050718/Nebula-OS.git" target="_blank" rel="noopener">Click here</a></li>
                 <li class="project-app-row"><span>AI Junction</span><a class="project-link" href="https://techmaster050718.github.io/Ai-junction/" target="_blank" rel="noopener">Click here</a></li>
-                <li class="project-app-row"><span>Veltrixa code editor</span><a class="project-link" href="https://techmaster050718.github.io/veltrixa_ai_editor/" target="_blank" rel="noopener">Click here</a></li>
                 <li class="project-app-row"><span>HireNova</span><a class="project-link" href="https://techmaster050718.github.io/HireNova/" target="_blank" rel="noopener">Click here</a></li>
-                <li class="project-app-row"><span>iOS game</span><a class="project-link" href="https://techmaster050718.github.io/iOs_chess_game/" target="_blank" rel="noopener">Click here</a></li>
+                <li class="project-app-row"><span>Veltrixa Code Editor</span><a class="project-link" href="https://techmaster050718.github.io/veltrixa_ai_editor/" target="_blank" rel="noopener">Click here</a></li>
+                <li class="project-app-row"><span>iOS Game</span><a class="project-link" href="https://github.com/techmaster050718/iOs_chess_game.git" target="_blank" rel="noopener">Click here</a></li>
             </ul>
             <p><em>Every mission completed makes you stronger.</em></p>
         `

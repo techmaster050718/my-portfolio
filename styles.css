@@ -315,7 +315,7 @@ body::before {
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
-    padding: 0.1rem 0.4rem;
+    padding: 0.1rem 0.28rem;
     border: 2px solid var(--secondary-color);
     border-radius: 4px;
     background: var(--secondary-color);
