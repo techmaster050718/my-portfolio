@@ -200,29 +200,27 @@ const contentData = {
     projects: {
         header: 'PROJECTS PORTFOLIO',
         body: `
-            <h3>College Attendance App</h3>
+            <h3>Job seeking Web App</h3>
             <p><strong>Technology:</strong> Flutter/Dart</p>
-            <p>A full attendance tracking system with analytics, shortage alerts & offline support.</p>
+            <p>A full Job tracking system with analytics, shortage alerts & offline support.</p>
             <ul>
-                <li>Attendance charts</li>
-                <li>Notifications</li>
-                <li>Clean UI</li>
+                <li>AI resume ananlyzer</li>
+                <li>ATS scores</li>
+                <li> Clean UI</li>
                 <li>Fast & optimized</li>
             </ul>
-            <h3>Music Player</h3>
+            <h3>AI tool search Web App</h3>
             <p><strong>Technology:</strong> Flutter/Dart</p>
-            <p>A smooth custom music player with playlists & background playback.</p>
+            <p>A smooth custom website to search ai tools according to need</p>
             <ul>
                 <li>Custom controls</li>
-                <li>Playlists</li>
-                <li>Background playback</li>
                 <li>Modern UI</li>
             </ul>
             <h3>Other basic Apps</h3>
             <ul>
-                <li>Weather App</li>
-                <li>Task Manager</li>
-                <li>UI/UX Experiments</li>
+                <li>PerFitlyLife APP </li>
+                <li>iOs Game</li>
+                <li>AI Chat assistant</li>
                 <li>Portfolio Websites</li>
             </ul>
             <p><em>Every mission completed makes you stronger.</em></p>
