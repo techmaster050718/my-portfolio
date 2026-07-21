@@ -39,7 +39,7 @@ body {
     font-family: 'Courier Prime', monospace;
     background: var(--bg-dark);
     color: var(--text-light);
-    overflow-x: hidden;
+    overflow-x: clip;
     overflow-y: auto;
     min-height: 100dvh;
     padding-bottom: 100px;
@@ -111,6 +111,7 @@ body::before {
     z-index: 1;
     align-items: center;
     justify-content: center;
+    overflow-x: clip;
 }
 
 /* ==================== PROFILE SECTION ==================== */
@@ -228,6 +229,7 @@ body::before {
     padding: clamp(1rem, 2vw, 2.5rem);
     position: relative;
     min-width: 0;
+    overflow-x: clip;
 }
 
 .panel-content {
@@ -237,10 +239,11 @@ body::before {
         0 10px 50px rgba(0, 0, 0, 0.8),
         inset 0 2px 10px rgba(255, 255, 255, 0.5);
     padding: clamp(1.5rem, 2.8vw, 3.5rem);
-    max-width: 860px;
+    max-width: min(100%, 860px);
     width: 100%;
     max-height: min(80vh, 900px);
     overflow-y: auto;
+    overflow-x: clip;
     position: relative;
     transform: translateX(100%) scale(0.9);
     opacity: 0;
@@ -393,12 +396,18 @@ body::before {
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 104px;
+    }
+
     .container {
         flex-direction: column;
+        align-items: stretch;
         justify-content: flex-start;
-        padding-top: 1rem;
         min-height: auto;
+        padding: 0.7rem 0.7rem 4.5rem;
+        gap: 0.75rem;
     }
 
     .profile-section {
@@ -407,82 +416,147 @@ body::before {
         right: auto;
         display: flex;
         justify-content: center;
-        margin-bottom: 1rem;
+        margin: 0.35rem 0 0.75rem;
     }
 
     .profile-photo {
-        width: min(220px, 48vw);
-        max-width: 220px;
+        width: min(160px, 58vw);
+        max-width: 160px;
+        min-width: 120px;
+        border-width: 4px;
     }
 
     .menu-section {
         width: 100%;
-        padding: 1rem 0.5rem 0.5rem;
+        max-width: 560px;
+        margin: 0 auto;
+        padding: 0.5rem 0.25rem 0.25rem;
         align-items: center;
         text-align: center;
     }
 
     .menu-title {
-        margin-bottom: 1.25rem;
+        font-size: clamp(2rem, 7.4vw, 2.75rem);
+        letter-spacing: 0.12rem;
+        margin-bottom: 0.95rem;
+    }
+
+    .menu-item {
+        font-size: clamp(1rem, 4vw, 1.3rem);
+        padding: 0.8rem 0.95rem;
+        margin: 0.3rem 0;
+        min-height: 44px;
+        text-align: center;
     }
 
     .content-panel {
         width: 100%;
-        padding: 0 0 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    body {
-        padding-bottom: 96px;
-    }
-
-    .container {
-        padding: 0.75rem 0.75rem 4rem;
-        gap: 1rem;
-    }
-
-    .profile-photo {
-        width: min(180px, 62vw);
-        border-width: 4px;
-    }
-
-    .menu-title {
-        font-size: clamp(2.2rem, 8vw, 3rem);
-        letter-spacing: 0.12rem;
-        margin-bottom: 1rem;
-    }
-
-    .menu-item {
-        font-size: clamp(1.05rem, 4.4vw, 1.4rem);
-        padding: 0.85rem 1rem;
-        margin: 0.35rem 0;
+        padding: 0 0 0.5rem;
     }
 
     .panel-content {
-        padding: 1.25rem;
+        padding: 1.1rem;
         max-height: none;
+        overflow-y: visible;
         border-width: 5px;
     }
 
     .panel-header {
-        font-size: 1.65rem;
-        margin-bottom: 1rem;
+        font-size: 1.55rem;
+        margin-bottom: 0.95rem;
     }
 
     .panel-body {
         font-size: 0.95rem;
         line-height: 1.7;
+        overflow-wrap: anywhere;
     }
 
     .panel-body h3 {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
     }
 
     #floatingSocial {
-        bottom: 16px;
-        gap: 10px;
+        bottom: 12px;
+        gap: 9px;
         padding: 0 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    #floatingSocial .social-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    #floatingSocial .social-btn.insta {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+    }
+
+    #floatingSocial .social-btn.insta svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-bottom: 112px;
+    }
+
+    .container {
+        padding: 0.5rem 0.5rem 4.25rem;
+        gap: 0.6rem;
+    }
+
+    .profile-photo {
+        width: min(140px, 70vw);
+        min-width: 110px;
+        border-width: 3px;
+    }
+
+    .menu-section {
+        padding: 0.75rem 0.25rem 0.25rem;
+    }
+
+    .menu-title {
+        font-size: clamp(1.7rem, 9vw, 2.15rem);
+        margin-bottom: 0.8rem;
+    }
+
+    .menu-item {
+        font-size: clamp(0.95rem, 4.2vw, 1.1rem);
+        padding: 0.75rem 0.8rem;
+        margin: 0.25rem 0;
+    }
+
+    .panel-content {
+        padding: 1rem 0.9rem;
+    }
+
+    .panel-header {
+        font-size: 1.35rem;
+    }
+
+    .panel-body {
+        font-size: 0.9rem;
+        line-height: 1.65;
+    }
+
+    #floatingSocial {
+        gap: 8px;
+        bottom: 10px;
+    }
+
+    #floatingSocial .social-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    #floatingSocial .social-btn.insta {
+        width: 46px;
+        height: 46px;
     }
 }
 
@@ -586,90 +660,6 @@ body::before {
 .speed-toggle button.active {
     background: var(--primary-color);
     color: var(--bg-dark);
-}
-
-/* ==================== RESPONSIVE ==================== */
-@media (max-width: 1024px) {
-    .profile-section {
-        top: 20px;
-        right: 20px;
-    }
-
-    .profile-photo {
-        width: 120px;
-        height: 120px;
-        font-size: 32px;
-    }
-
-    .menu-section {
-        width: 350px;
-        padding: 60px 30px;
-    }
-
-    .menu-title {
-        font-size: 36px;
-        margin-bottom: 40px;
-    }
-
-    .menu-item {
-        font-size: 24px;
-        padding: 14px 20px;
-    }
-
-    /* make insta scale down on tablet */
-    #floatingSocial .social-btn.insta { width: 48px; height: 48px; }
-    #floatingSocial .social-btn.insta svg { width: 22px; height: 22px; }
-}
-
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .profile-section {
-        position: static;
-        margin: 20px auto;
-        text-align: center;
-    }
-
-    .menu-section {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .menu-title {
-        text-align: center;
-        font-size: 28px;
-        margin-bottom: 30px;
-    }
-
-    .menu-item {
-        font-size: 20px;
-        text-align: center;
-    }
-
-    .content-panel {
-        padding: 20px;
-    }
-
-    .panel-content {
-        padding: 30px 25px;
-        max-height: 60vh;
-    }
-
-    .panel-header {
-        font-size: 32px;
-    }
-
-    .speed-toggle {
-        top: 10px;
-        left: 10px;
-        padding: 8px 12px;
-    }
-
-    /* mobile insta sizing */
-    #floatingSocial .social-btn.insta { width: 44px; height: 44px; border-radius: 10px; }
-    #floatingSocial .social-btn.insta svg { width: 20px; height: 20px; }
 }
 
 /* ==================== SCROLLBAR ==================== */
