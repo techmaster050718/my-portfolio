@@ -172,13 +172,14 @@ const contentData = {
         body: `
             <h3>Technical Skills</h3>
             <ul>
-                <li><strong>App Development (Flutter, Dart, Swift, Kotlin):</strong><br>Cross-platform & Native mobile apps</li>
-                <li><strong>Frontend:</strong><br>HTML, CSS, JavaScript, React, Next.js, Tailwind CSS</li>
-                <li><strong>Backend:</strong><br>Python, Node.js, Express.js, REST APIs</li>
-                <li><strong>Databases:</strong><br>PostgreSQL, Firebase, MySQL, Supabase</li>
-                <li><strong>AI Engineering:</strong><br>Prompt Engineering, LLM Integration & Automation</li>
-                <li><strong>Version Control:</strong><br>Git & GitHub</li>
-                <li><strong>Cloud & DevOps:</strong><br>Docker, Kubernetes, CI/CD, AWS</li>
+                <li><strong>App Development (Flutter, Dart, Java,Swift, Kotlin):</strong><br>Cross-platform & Native mobile apps</li>
+                <li><strong>Frontend:</strong><br>HTML, CSS, JavaScript, Next.js, Tailwind CSS</li>
+                <li><strong>Backend:</strong><br>Python, Node.js, Express.js, REST APIs, Django, FastAPI</li>
+                <li><strong>Databases:</strong><br>PostgreSQL, Firebase, MySQL, Supabase, Prisma ORM, MongoDB, SQLite</li>
+                
+                <li><strong>Version Control:</strong><br>Git & GitHub, GitLab, Bitbucket , GitHub Action</li>
+                <li><strong>Cloud & DevOps:</strong><br>Docker, Kubernetes, Cloudflare ,GitLab CI/CD, AWS(EC2,S3,IAM), Jenkins , Linux scripting, Terraforms. </li>
+                <li><strong>Operating Systems:</strong><br>Linux (Debian,Ubuntu,Kali linux), Windows, macOS</li>
                  
                 
             </ul>
