@@ -200,28 +200,29 @@ const contentData = {
     projects: {
         header: 'PROJECTS PORTFOLIO',
         body: `
-            <h3>Job seeking Web App</h3>
-            <p><strong>Technology:</strong> Flutter/Dart</p>
+            <h3>TechVerse</h3>
+            <p><strong>Technology:</strong> HTML,CSS,JS,TYPESCRIPT.</p>
             <p>A full Job tracking system with analytics, shortage alerts & offline support.</p>
             <ul>
-                <li>AI resume ananlyzer</li>
-                <li>ATS scores</li>
-                <li> Clean UI</li>
+                <li> 250+ comapany registered</li>
+                <li> Location wise Jobs </li>
+                <li>Tech stack required</li>
                 <li>Fast & optimized</li>
             </ul>
-            <h3>AI tool search Web App</h3>
-            <p><strong>Technology:</strong> Flutter/Dart</p>
-            <p>A smooth custom website to search ai tools according to need</p>
+            <h3>HireNova</h3>
+            <p><strong>Technology:</strong> Next.js,PostgreSQL,OpenAI API,Typescript</p>
+            <p>A smooth custom website to analyze resume and ATS score</p>
             <ul>
                 <li>Custom controls</li>
                 <li>Modern UI</li>
             </ul>
             <h3>Other basic Apps</h3>
             <ul>
-                <li>PerFitlyLife APP </li>
-                <li>iOs Game</li>
-                <li>AI Chat assistant</li>
-                <li>Portfolio Websites</li>
+                <li>PerFitlyLife App </li>
+                <li>Nebula OS</li>
+                <li>AI Chat assistan </li>
+                <li>AI Junction</li>
+                 <li> iOS game</li>
             </ul>
             <p><em>Every mission completed makes you stronger.</em></p>
         `
