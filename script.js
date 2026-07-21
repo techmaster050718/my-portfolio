@@ -178,7 +178,7 @@ const contentData = {
                 <li><strong>Databases:</strong><br>PostgreSQL, Firebase, MySQL, Supabase, Prisma ORM, MongoDB, SQLite</li>
                 
                 <li><strong>Version Control:</strong><br>Git & GitHub, GitLab, Bitbucket , GitHub Action</li>
-                <li><strong>Cloud & DevOps:</strong><br>Docker, Kubernetes, Cloudflare ,GitLab CI/CD, AWS(EC2,S3,IAM), Jenkins , Linux scripting, Terraforms. </li>
+                <li><strong>Cloud & DevOps:</strong><br>Docker, Kubernetes, Cloudflare ,GitLab CI/CD, AWS(EC2,S3,IAM), Jenkins  Linux scripting, Terraforms. </li>
                 <li><strong>Operating Systems:</strong><br>Linux (Debian,Ubuntu,Kali linux), Windows, macOS</li>
                  
                 
@@ -201,7 +201,10 @@ const contentData = {
     projects: {
         header: 'PROJECTS PORTFOLIO',
         body: `
-            <h3>TechVerse</h3>
+            <div class="project-title-row">
+                <h3>TechVerse</h3>
+                <a class="project-link" href="https://techmaster050718.github.io/TechVerse-India/" target="_blank" rel="noopener">Click here</a>
+            </div>
             <p><strong>Technology:</strong> HTML,CSS,JS,TYPESCRIPT.</p>
             <p>A full Job tracking system with analytics, shortage alerts & offline support.</p>
             <ul>
@@ -210,20 +213,25 @@ const contentData = {
                 <li>Tech stack required</li>
                 <li>Fast & optimized</li>
             </ul>
-            <h3>HireNova</h3>
+            <div class="project-title-row">
+                <h3>FluentMind</h3>
+                <a class="project-link" href="https://techmaster050718.github.io/Fluent_Mind/" target="_blank" rel="noopener">Click here</a>
+            </div>
             <p><strong>Technology:</strong> Next.js,PostgreSQL,OpenAI API,Typescript</p>
-            <p>A smooth custom website to analyze resume and ATS score</p>
+            <p>A smooth custom website to learn english and communication skills</p>
             <ul>
                 <li>Custom controls</li>
                 <li>Modern UI</li>
             </ul>
             <h3>Other basic Apps</h3>
             <ul>
-                <li>PerFitlyLife App </li>
-                <li>Nebula OS</li>
+                <li class="project-app-row"><span>PerFitly Life</span><a class="project-link" href="https://techmaster050718.github.io/Perfitlyapp/" target="_blank" rel="noopener">Click here</a></li>
+                <li class="project-app-row"><span>Nebula OS</span><a class="project-link" href="https://techmaster050718.github.io/Nebula-OS/" target="_blank" rel="noopener">Click here</a></li>
                 <li>AI Chat assistan </li>
-                <li>AI Junction</li>
-                 <li> iOS game</li>
+                <li class="project-app-row"><span>AI Junction</span><a class="project-link" href="https://techmaster050718.github.io/Ai-junction/" target="_blank" rel="noopener">Click here</a></li>
+                <li class="project-app-row"><span>Veltrixa code editor</span><a class="project-link" href="https://techmaster050718.github.io/veltrixa_ai_editor/" target="_blank" rel="noopener">Click here</a></li>
+                <li class="project-app-row"><span>HireNova</span><a class="project-link" href="https://techmaster050718.github.io/HireNova/" target="_blank" rel="noopener">Click here</a></li>
+                <li class="project-app-row"><span>iOS game</span><a class="project-link" href="https://techmaster050718.github.io/iOs_chess_game/" target="_blank" rel="noopener">Click here</a></li>
             </ul>
             <p><em>Every mission completed makes you stronger.</em></p>
         `
